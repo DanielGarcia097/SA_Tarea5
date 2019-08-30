@@ -8,9 +8,9 @@ const router = express.Router()
  *  Usuario predeterminado
  */
 var data = {
-  'pilotos':[
+  pilotos: [
     {
-      Id : '2',
+      Id: '2',
       Nombre: 'Conductor Juan Perez',
       Telefono: '12345678',
       Vehiculo: 'C209ZMK'
@@ -22,25 +22,21 @@ var data = {
  *  Ruta GET para el servicio de clientes
  */
 router.get('/conductores', (req, res) => {
-  let placa = req.query.id
-  let ubicacion = req.query.id
-  piloto = localizar_piloto(placa)
+  const placa = req.query.placa
+  const ubicacion = req.query.ubicacion
+  var piloto = localizarPiloto(placa, ubicacion)
   res.json(piloto)
-})
-
-/**
- *  Ruta POST para el servicio de clientes
- */
-router.post('/conductores', (req, res) => {
-  console.log(req.body)
 })
 
 /**
  *  Función utilizada para localicar al piloto
  *  que corresponde al vehículo ubicado.
+ *  @placa = placa del vehículo que fue asignado.
+ *  @ubicación = ubicación del vehículo que fue asignado.
+ *  @return = retorna el piloto que corresponde al vehículo asignado.
  */
 
-function localizar_piloto(placa) {
-  return data["pilotos"][0];
+function localizarPiloto (placa, ubicacion) {
+  return data['pilotos'][0]
 }
 module.exports = router
