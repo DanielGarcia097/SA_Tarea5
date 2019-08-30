@@ -4,14 +4,13 @@
 const express = require('express')
 const router = express.Router()
 
-
 /**
  *  Usuario predeterminado
  */
 var data = {
-  'clientes':[
+  clientes: [
     {
-      Id : '1',
+      Id: '1',
       Nombre: 'Daniel',
       Ubicacion: '30°45\'32"N 55°31\'11"O',
       Telefono: '12345678'
@@ -19,19 +18,12 @@ var data = {
   ]
 }
 
-
 /**
  *  Ruta GET para el servicio de clientes
  */
 router.get('/clientes/', (req, res) => {
-  let id = req.query.id
-  res.json(data["clientes"][id])
+  const id = req.query.id
+  res.json(data['clientes'][id])
 })
 
-/**
- *  Ruta POST para el servicio de clientes
- */
-router.post('/clientes', (req, res) => {
-  console.log(req.body)
-})
 module.exports = router
