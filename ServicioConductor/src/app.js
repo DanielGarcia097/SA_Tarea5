@@ -10,7 +10,7 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 
 // routes
-const routes = require('./routes/cliente')
+const routes = require('./routes/conductor')
 
 // middlewares
 app.use(morgan('dev'))
@@ -18,4 +18,4 @@ app.use(bodyParser.json())
 app.use(routes)
 
 // puerto del API
-app.listen(3000)
+app.listen(3030)
